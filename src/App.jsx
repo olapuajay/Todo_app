@@ -5,16 +5,25 @@ import TodoContainer from './components/TodoContainer'
 
 function App() {
   const [inputVal, setInputVal] = useState('')
+  const [todos, setTodos] = useState([])
+
   function writeTodo(e) {
-    console.log(e.target.value)
+    setInputVal(e.target.value)
+  }
+
+  function addTodo() {
+    if(inputVal != '') {
+      setTodos((prevTodos) => [...prevTodos, inputVal])
+      setInputVal('')
+    }
   }
 
   return (
     <main>
       <h1>To-Do App</h1>
-      <InputContainer inputVal={inputVal} writeTodo={writeTodo} />
+      <InputContainer inputVal={inputVal} writeTodo={writeTodo} addTodo={addTodo} />
       <hr />
-      <TodoContainer />
+      <TodoContainer todos={todos} />
     </main>
   )
 }

@@ -1,16 +1,18 @@
 import React from 'react'
+import Todo from './Todo'
 
-function TodoContainer() {
+function TodoContainer({todos}) {
   return (
     <div>
       <div className="task-container">
-        <div className="task">
-          <p> Go to the class </p>
-          <div className="actions">
-            <input type="checkbox" />
-            <button> Delete </button>
-          </div>
-        </div>
+        {todos.map((todo) => {
+          return (
+            <>
+              <Todo todos={todo} />
+              <br />
+            </>
+          )
+        })}
       </div>
     </div>
   )
