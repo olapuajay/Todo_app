@@ -1,14 +1,14 @@
 import React from 'react'
 import Todo from './Todo'
 
-function TodoContainer({todos}) {
+function TodoContainer({todos, delTodo}) {
   return (
     <div>
       <div className="task-container">
-        {todos.map((todo) => {
+        {todos.map((todo, index) => {
           return (
             <>
-              <Todo todos={todo} />
+              <Todo todos={todo} index={index} delTodo={delTodo} />
               <br />
             </>
           )

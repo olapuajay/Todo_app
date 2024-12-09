@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Todo({todos}) {
+function Todo({todos, delTodo, index}) {
   return (
     <div>
       <div className="task">
           <p> {todos} </p>
           <div className="actions">
             <input type="checkbox" />
-            <button> Delete </button>
+            <button onClick={() => delTodo(index)}> Delete </button>
           </div>
         </div>
     </div>
